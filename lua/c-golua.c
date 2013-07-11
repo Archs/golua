@@ -365,11 +365,22 @@ void clua_opentable(lua_State* L)
 	lua_call(L, 1, 0);
 }
 
+extern int iuplua_open(lua_State* L);
+
 void clua_openos(lua_State* L)
 {
 	lua_pushcfunction(L,&luaopen_os);
 	lua_pushstring(L,"os");
 	lua_call(L, 1, 0);
+	lua_pushcfunction(L,&iuplua_open);
+	lua_pushstring(L,"iup");
+	lua_call(L, 1, 0);
+	// lua_pushcfunction(L,&iupkey_open);
+	// lua_pushstring(L,"os");
+	// lua_call(L, 1, 0);
+
+	// iuplua_open(L);
+	// iupkey_open(L);
 }
 
 void clua_hook_function(lua_State *L, lua_Debug *ar)
