@@ -2,7 +2,7 @@ package lua
 
 /*
 #cgo CFLAGS: -Ilua
-#cgo LDFLAGS: -llua51
+#cgo LDFLAGS: -laiox
 
 #include "lua.h"
 #include "iup.h"
@@ -10,10 +10,10 @@ package lua
 */
 import "C"
 
-// func (L *State) OpenIUP() {
-// 	C.iuplua_open(L.s)
-// 	C.iupkey_open(L.s)
-// }
+func (L *State) OpenIUP() {
+	C.iuplua_open(L.s)
+	C.iupkey_open(L.s)
+}
 
 // // add iuplua
 // //   other libs
